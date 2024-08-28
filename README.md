@@ -8,7 +8,58 @@ To allow easy building with gradle. This is nice to for example automate SSG dep
 TODO
 
 ## Configuration
-TODO
+Agogo uses three .properties files: global.properties, env.properties, and
+pipes.properties.
+
+### global.properties
+The global.properties configuration file is used to configure variables that are used
+by the whole application, and are available to be referenced in all pipes. The
+application wide variables are source, target, and pipes. These control which
+directories are used as the source to iterate through, target to process files
+to, and directory of where code for configured pipes can be found.
+
+You are free to expand the configuration beyond that, adding variables you need
+in your pipes.
+
+Example configuration:
+```
+language_code=en-US
+pipes=pipes
+source=site
+target=bld
+templates=site/_templates
+```
+
+### env.properties
+The env.properties configuration file is used to provide conditionals for the pipes.
+See Pipe Schematics section under Usage for more information.
+
+Example configuration:
+```
+dev=false
+rel=true
+```
+
+### pipes.properties
+The pipes.properties configuration file allows configuring which pipes are loaded and
+what schematic pipe name each loaded pipe maps to. This has the benefit, that
+you can change your pipe functionality without modifying your schematics if
+needed.
+
+Example configuration:
+```
+code=com.venemies.pipes.Code
+comment=com.venemies.pipes.Comment
+copyright=com.venemies.pipes.Copyright
+downloadlink=com.venemies.pipes.DownloadLink
+externallink=com.venemies.pipes.ExternalLink
+heading=com.venemies.pipes.Heading
+htmldoc=com.venemies.pipes.HTMLDoc
+paragraph=com.venemies.pipes.Paragraph
+readingtime=com.venemies.pipes.ReadingTime
+template=com.venemies.pipes.Template
+version=com.venemies.pipes.Version
+```
 
 ## Usage
 Agogo is heavily inspired by shell piping. Thus, at the heart of Agogo are
