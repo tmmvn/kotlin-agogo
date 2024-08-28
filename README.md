@@ -5,7 +5,7 @@ A simple but flexible file processor suitable for SSG and more. Kotlin implement
 To allow easy building with gradle. This is nice to for example automate SSG deployments.
 
 ## Installation
-TODO
+Use gradle.
 
 ## Configuration
 Agogo uses three .properties files: global.properties, env.properties, and
